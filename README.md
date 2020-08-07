@@ -22,7 +22,7 @@ we have four apps
 3. users
 4. search
 
-Magazine
+1. Magazine
 
 
 This app has the basic templates and views
@@ -34,7 +34,7 @@ about page,  url = '/about'
 contact page,  url = '/contact'
 
 
-Blog
+2. Blog
 
 
 just the blog page
@@ -42,7 +42,7 @@ just the blog page
 blog home page, url = '/blog'
 
 
-users
+3. users
 
 has the whole user registration and login forms and authentication with the user profile and edit user profile
 
@@ -56,9 +56,11 @@ profile page, url = 'users/profile'....need to be logged in
 edit profile page, url = 'users/edit_profile'....need to be logged in
 
 
-search
+4. search
 
 untouched
+
+packages instaleed: django, Pillow, django-crispy-forms
 
 NB: the templates and styling for the pages are still going to be edited...these are just dummy templates
 
