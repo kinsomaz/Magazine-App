@@ -17,12 +17,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from blog.views import (
+    blog_post_create_view,
+)
+from search.views import search_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('magazine.urls')),
+    path('blog-new/', blog_post_create_view),
     path('blog/', include('blog.urls')),
-    path('users/', include('users.urls'))
+    path('users/', include('users.urls')),
+    path('search/', search_view)
 ]
 
 if settings.DEBUG:

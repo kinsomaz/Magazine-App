@@ -39,9 +39,19 @@ contact page,  url = '/contact'
 2. Blog
 
 
-just the blog page
+This is the app that users can use to write, edit, delete and view their posts.
+
+NOTE: Slug is what the writer entered in the slug field during the creation of each post. 
 
 blog home page, url = '/blog'
+
+blog create page, url = '/blog-new'
+
+blog detail page, url = '/blog/slug'
+
+blog edit page, url = '/blog/slug/edit'
+
+blog delete page, url = '/blog/slug/delete'
 
 
 3. users
@@ -60,7 +70,9 @@ edit profile page, url = 'users/edit_profile'....need to be logged in
 
 4. search
 
-untouched
+This is the app that adds search feature to the blog app.
+
+search page, url = '/search'
 
 packages instaleed: django, Pillow, django-crispy-forms
 
