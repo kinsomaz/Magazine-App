@@ -1,18 +1,7 @@
-.nav-bar{
-    width:100%;
-    height:69px;
-    position:fixed;
-    background-color:black;
-    z-index:1;
-}
-
-.main-section{
-    position:relative;
-    top:69px;
-}
-
-.nav-bar .heading{
-    color:white;
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 .account-heading {

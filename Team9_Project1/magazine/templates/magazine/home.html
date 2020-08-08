@@ -1,4 +1,35 @@
 {% extends "magazine/base.html" %}
+{% load static %}
 {% block content %}
-        <h1>Home Page</h1>
+        <main class="container wrapper">
+        <div class="row blog1">
+            <div class="col-md-6 col-lg-4">
+                <img class="img-fluid" src="{% static 'magazine/images/img1.png' %}" alt="">
+            </div>
+            <div class="col-md-6 col-lg-8">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor pulvinar leo. Nunc eu molestie enim. Donec non luctus nunc. Mauris elementum maximus malesuada. Donec sit amet velit massa. Duis venenatis massa ut erat auctor, eu porttitor felis condimentum. Cras suscipit leo non rhoncus ultrices. Proin tincidunt purus nibh, sed rutrum enim ultrices at. Pellentesque laoreet ut turpis a aliquam. Sed vitae bibendum felis. Etiam interdum nisl eu faucibus consectetur. Sed eu laoreet sapien. Pellentesque pulvinar est eu odio cursus blandit. Sed interdum lectus sed scelerisque pharetra. Vestibulum mattis, leo ut lobortis iaculis, magna massa dignissim risus, vitae finibus nulla nisi convallis libero.</p>
+                <button type="button" class="read btn btn-secondary">Read More..</button>
+            </div>
+        </div>
+
+        <div class="row blog2">
+            <div class="col-md-6 col-lg-4">
+                 <img class="img-fluid" src="{% static 'magazine/images/img2.png' %}" alt="">
+            </div>
+            <div class="col-md-6 col-lg-8">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor pulvinar leo. Nunc eu molestie enim. Donec non luctus nunc. Mauris elementum maximus malesuada. Donec sit amet velit massa. Duis venenatis massa ut erat auctor, eu porttitor felis condimentum. Cras suscipit leo non rhoncus ultrices. Proin tincidunt purus nibh, sed rutrum enim ultrices at. Pellentesque laoreet ut turpis a aliquam. Sed vitae bibendum felis. Etiam interdum nisl eu faucibus consectetur. Sed eu laoreet sapien. Pellentesque pulvinar est eu odio cursus blandit. Sed interdum lectus sed scelerisque pharetra. Vestibulum mattis, leo ut lobortis iaculis, magna massa dignissim risus, vitae finibus nulla nisi convallis libero.</p>
+                <button type="button" class="read btn btn-secondary">Read More..</button>
+            </div>
+        </div>
+
+        <div class="row blog3">
+            <div class="col-md-6 col-lg-4">
+                 <img class="img-fluid" src="{% static 'magazine/images/img1.png' %}" alt="">
+            </div>
+            <div class="col-md-6 col-lg-8">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor pulvinar leo. Nunc eu molestie enim. Donec non luctus nunc. Mauris elementum maximus malesuada. Donec sit amet velit massa. Duis venenatis massa ut erat auctor, eu porttitor felis condimentum. Cras suscipit leo non rhoncus ultrices. Proin tincidunt purus nibh, sed rutrum enim ultrices at. Pellentesque laoreet ut turpis a aliquam. Sed vitae bibendum felis. Etiam interdum nisl eu faucibus consectetur. Sed eu laoreet sapien. Pellentesque pulvinar est eu odio cursus blandit. Sed interdum lectus sed scelerisque pharetra. Vestibulum mattis, leo ut lobortis iaculis, magna massa dignissim risus, vitae finibus nulla nisi convallis libero.</p>
+                <button type="button" class="read btn btn-secondary">Read More..</button>
+            </div>
+        </div>
+    </main>
 {% endblock content %}
