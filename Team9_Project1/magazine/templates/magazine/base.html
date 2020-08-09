@@ -21,9 +21,9 @@
   </head>
   <body>
     <header>
-         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6C757D;">
+         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #6C757D;">
         <div class="container">
-            <a class="navbar-brand" href="#">Magazine</a>
+            <a class="navbar-brand" href="{% url 'magazine-home' %}">Magazine</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,16 +31,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'magazine-home' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
+                        <a class="nav-link" href="{% url 'blog-home' %}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{% url 'magazine-about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
+                        <a class="nav-link" href="{% url 'magazine-contact' %}">Contact Us</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,8 +48,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Fashion</a>
-                            <a class="dropdown-item" href="#">Art</a>
-                            <a class="dropdown-item" href="#">Something</a>
+                            <a class="dropdown-item" href="#">Beauty</a>
+                            <a class="dropdown-item" href="#">Art & Lifestyle</a>
+                            <a class="dropdown-item" href="#">News</a>
                             <!--
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
@@ -57,16 +58,53 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+
+                 <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                         <div class="form-box f-right ">
+                                            <input type="text" name="Search" placeholder="Search your interest...">
+                                            <div class="search-icon">
+                                                <button class="search-btn">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                     </li>
+                     {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'profile' %}">Account</a>
+                            <a class="dropdown-item" href="#">Add blog-post</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+
+                            <!--
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+-->
+                        </div>
+                    </li>
+                     {% else %}
+                     <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                     {% endif %}
+                </ul>
+
             </div>
         </div>
     </nav>
     </header>
         <div class="container">
-            {% if messages %}
+            <div class="row">
+            <div class="col"></div>
+            <div class="col-md-8 col-sm-12">
+                {% if messages %}
               {% for message in messages %}
                   <div class="alert alert-{{ message.tags }}">
                     {{ message }}
@@ -74,6 +112,9 @@
               {% endfor %}
             {% endif %}
             </div>
+             <div class="col"></div>
+                </div>
+        </div>
             {% block content %}{% endblock %}
     <footer>
         <div class="container text-center">

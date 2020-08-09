@@ -1,35 +1,94 @@
 {% extends "magazine/base.html" %}
 {% load static %}
 {% block content %}
-        <main class="container wrapper">
-        <div class="row blog1">
-            <div class="col-md-6 col-lg-4">
-                <img class="img-fluid" src="{% static 'magazine/images/img1.png' %}" alt="">
-            </div>
-            <div class="col-md-6 col-lg-8">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor pulvinar leo. Nunc eu molestie enim. Donec non luctus nunc. Mauris elementum maximus malesuada. Donec sit amet velit massa. Duis venenatis massa ut erat auctor, eu porttitor felis condimentum. Cras suscipit leo non rhoncus ultrices. Proin tincidunt purus nibh, sed rutrum enim ultrices at. Pellentesque laoreet ut turpis a aliquam. Sed vitae bibendum felis. Etiam interdum nisl eu faucibus consectetur. Sed eu laoreet sapien. Pellentesque pulvinar est eu odio cursus blandit. Sed interdum lectus sed scelerisque pharetra. Vestibulum mattis, leo ut lobortis iaculis, magna massa dignissim risus, vitae finibus nulla nisi convallis libero.</p>
-                <button type="button" class="read btn btn-secondary">Read More..</button>
-            </div>
-        </div>
+        <main class="main">
+            <div class="container">
+                <section class="news">
+                    <div class="row">
+                    <div class="col-12">
+                        <div class="section-tittle mb-35">
+                            <h2>Entertainment News</h2>
+                        </div>
+                    </div>
+                </div>
+                    <div class="content">
+                        {% for article in articles %}
+                        <div class="row music">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="music-image">
+                                    <img class="music-image" src="{{ article.urlToImage }}">
+                                </div>
+                            </div>
+                             <div class="col-md-6 col-sm-12">
+                                <div class="music-text">
+                                    <a href="{{ article.url }}" target="_blank" class="music-link"><h3>{{article.title}}</h3></a>
+                                    <p>{{ article.description }} <a href="{{ article.url }}" target="_blank"> Cick here to see full article</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                        <a href="#" class="btn btn-outline-info float-right">Show all</a>
 
-        <div class="row blog2">
-            <div class="col-md-6 col-lg-4">
-                 <img class="img-fluid" src="{% static 'magazine/images/img2.png' %}" alt="">
-            </div>
-            <div class="col-md-6 col-lg-8">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor pulvinar leo. Nunc eu molestie enim. Donec non luctus nunc. Mauris elementum maximus malesuada. Donec sit amet velit massa. Duis venenatis massa ut erat auctor, eu porttitor felis condimentum. Cras suscipit leo non rhoncus ultrices. Proin tincidunt purus nibh, sed rutrum enim ultrices at. Pellentesque laoreet ut turpis a aliquam. Sed vitae bibendum felis. Etiam interdum nisl eu faucibus consectetur. Sed eu laoreet sapien. Pellentesque pulvinar est eu odio cursus blandit. Sed interdum lectus sed scelerisque pharetra. Vestibulum mattis, leo ut lobortis iaculis, magna massa dignissim risus, vitae finibus nulla nisi convallis libero.</p>
-                <button type="button" class="read btn btn-secondary">Read More..</button>
-            </div>
-        </div>
+                </section>
 
-        <div class="row blog3">
-            <div class="col-md-6 col-lg-4">
-                 <img class="img-fluid" src="{% static 'magazine/images/img1.png' %}" alt="">
+                <section class="music">
+                    <div class="row">
+                    <div class="col-12">
+                        <div class="section-tittle mb-35">
+                            <h2>Music</h2>
+                        </div>
+                    </div>
+                </div>
+                    <div class="content">
+                        {% for article in music %}
+                        <div class="row music">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="music-image">
+                                    <img class="music-image" src="{{ article.urlToImage }}">
+                                </div>
+                            </div>
+                             <div class="col-md-6 col-sm-12">
+                                <div class="music-text">
+                                    <a href="{{ article.url }}" target="_blank" class="music-link"><h3>{{article.title}}</h3></a>
+                                    <p>{{ article.description }} <a href="{{ article.url }}" target="_blank"> Cick here to see full article</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                        <a href="#" class="btn btn-outline-info float-right">Show all</a>
+                </section>
+
+                <section class="fashiion" id="fashion">
+                    <div class="row">
+                    <div class="col-12">
+                        <div class="section-tittle mb-35">
+                            <h2>Fashion</h2>
+                        </div>
+                    </div>
+                </div>
+                    <div class="content">
+                        {% for article in posts %}
+                        <div class="row music">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="music-image">
+                                    <img class="music-image" src="{{ article.image.url }}">
+                                </div>
+                            </div>
+                             <div class="col-md-6 col-sm-12">
+                                <div class="music-text">
+                                    <a href="{{ article.url }}" target="_blank" class="music-link"><h3>{{article.title}}</h3></a>
+                                    <p>{{ article.article }} <a href="{{ article.url }}" target="_blank"> Cick here to see full article</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                        <a href="#" class="btn btn-outline-info float-right">Show all</a>
+
+                </section>
+
             </div>
-            <div class="col-md-6 col-lg-8">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor pulvinar leo. Nunc eu molestie enim. Donec non luctus nunc. Mauris elementum maximus malesuada. Donec sit amet velit massa. Duis venenatis massa ut erat auctor, eu porttitor felis condimentum. Cras suscipit leo non rhoncus ultrices. Proin tincidunt purus nibh, sed rutrum enim ultrices at. Pellentesque laoreet ut turpis a aliquam. Sed vitae bibendum felis. Etiam interdum nisl eu faucibus consectetur. Sed eu laoreet sapien. Pellentesque pulvinar est eu odio cursus blandit. Sed interdum lectus sed scelerisque pharetra. Vestibulum mattis, leo ut lobortis iaculis, magna massa dignissim risus, vitae finibus nulla nisi convallis libero.</p>
-                <button type="button" class="read btn btn-secondary">Read More..</button>
-            </div>
-        </div>
-    </main>
+        </main>
 {% endblock content %}

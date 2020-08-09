@@ -23,3 +23,32 @@ body {
   margin-bottom: 16px;
 }
 
+main{
+    margin-top:50px;
+}
+
+.form-box{
+    position:relative;
+}
+
+.form-box input {
+  border: 1px solid #eeeeee;
+  border-radius: 0px;
+  padding: 10px 20px;
+  width: 300px;
+  color: #000000;
+}
+
+.form-box .search-icon {
+  position: absolute;
+  top: 6px;
+  right: 1px;
+  padding: 7px 23px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.search-btn{
+    border:none;
+    background:none;
+}
