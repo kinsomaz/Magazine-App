@@ -4,6 +4,14 @@
 ## Hosting
 
 Visit https://magazine-ecx.herokuapp.com/ 
+## Functionality 
+
+The magazine app brings you the latest entertainment news and music news,
+you can search for any intrest and it will bring you the latest.
+
+It also comes with a blog app where users can register, login, and create blog post for users to see and
+can see posts created by other users.
+
 
 ## Database
 
