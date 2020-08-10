@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .models import User
+
+from django.contrib.admin.views.decorators import staff_member_required, user_passes_test
 
 
 def register(request):
@@ -23,15 +27,17 @@ def register(request):
     return render(request, 'users/register.html',context)
 
 
-@login_required
-def profile(request):
+
+def profile(request, username):
     context = {
-        'title': 'Profile'
+        'title': 'Profile',
+        'user_data': User.objects.get(username=username)
     }
     return render(request, 'users/profile.html', context)
 
 
 @login_required
+@user_passes_test
 def update_profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)

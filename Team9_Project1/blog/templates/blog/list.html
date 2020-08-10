@@ -1,11 +1,41 @@
-{% extends "magazine/base.html" %}
+{% extends "blog/base.html" %}
+{% load custom_filter_tags %}
 {% block content %}
 <main class="container">
-        <h1>Blog - Home page</h1>
-        <div class='row'>
-		    {% for object in object_list %}
-		        {% include 'blog/list-inline.html' with blog_post=object truncate=True detail=False %}
-		    {% endfor %}
-		</div>
+	<section class="beauty" id="beauty">
+		 <div class="row">
+                    <div class="col-12">
+                        <div class="section-tittle mb-35">
+                            <h1>Magazine Blog</h1>
+                        </div>
+                    </div>
+                </div>
+                    <div class="content">
+                        {% for object in object_list %}
+                        <div class="row music">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="music-image">
+                                    {% if object.image %}
+                                    <img class="music-image" src="{{ object.image.url }}">
+                                    {% endif %}
+                                </div>
+                            </div>
+                             <div class="col-md-6 col-sm-12">
+                                <div class="music-text">
+                                    <a href="{% url 'blog-post' object.slug %}" class="music-link"><h3>{{ object.title }}</h3></a>
+                                    {% if object.content|length > 50 %}
+                                    <p>{{ object.content|shrink }}...</p>
+									<a href="{% url 'blog-post' object.slug %}" class="btn btn-outline-info float-right">view post</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+
+                </section>
+
 </main>
+
 {% endblock content %}

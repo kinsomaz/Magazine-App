@@ -38,6 +38,7 @@ def blog_post_create_view(request):
         obj.user = request.user
         obj.save()
         form = BlogPostModelForm()
+        return redirect(blog_post_list_view)
     template_name = 'blog/form.html'
     context = {'form': form}
     return render(request, template_name, context)  

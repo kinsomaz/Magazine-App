@@ -1,0 +1,14 @@
+{% extends "magazine/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+        <main class="container">
+            <div class="content">
+                <h1>{{ post.title }}</h1>
+                <p>By Magazine  <span class="text-muted">  {{ post.date_posted }}</span> </p>
+                <p>Category: {{ post.category }}</p>
+                <img src="{{ post.image.url }}">
+                <p>{{ post.article }}</p>
+            </div>
+        </main>
+
+{% endblock content %}

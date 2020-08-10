@@ -1,22 +1,24 @@
-{% extends "magazine/base.html" %}
-
-
+{% extends "blog/base.html" %}
 {% block content %}
+    <main class="container">
+            <div class="content">
+                <h2>{{ object.title }}</h2>
+                <p>By <a href="{% url 'profile' object.user.username %}" class="text-muted">{{ object.user.username }}</a></p>
+                <p>  <span class="text-muted">  {{ object.publish_date }}</span> </p>
+                <p>Slug: {{ object.slug }}</p>
+                {% if object.image %}
+                <img src="{{ object.image.url }}">
+                {% endif %}
+                <p>{{ object.content }}</p>
+                <div>
+                     {% if user == object.user %}
+                        <a href="{% url 'edit-post' object.slug %}" class="btn btn-outline-info">Edit</a>
+                        <a href="{% url 'delete-post' object.slug %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+
+        </main>
 
 
-    <div class='row'>
-
-
-     {% include 'blog/list-inline.html' with blog_post=object detail=True %}
-
-    {% if request.user.is_authenticated %}
-        {% if request.user.is_staff %}
-         <div class='col-12'>
-            <a href='{{ object.get_edit_url }}'>Edit</a>
-            <a href='{{ object.get_delete_url }}'>Delete</a>
-        </div>
-        {% endif %}
-    {% endif %}
-
-    </div>
 {% endblock %}

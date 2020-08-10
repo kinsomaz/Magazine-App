@@ -1,27 +1,28 @@
 import requests
 
 
-def top_headlines():
-    url = ('https://newsapi.org/v2/top-headlines?'
-              'country=us&category=entertainment&'
-              'apiKey=5ba428a78e674a598a177775ea8d89b3&'
-              'page=1&'
-              'pageSize=5')
+def top_headlines(page, page_size, api_key):
+    url = (f'https://newsapi.org/v2/top-headlines?'
+           f'country=us&'
+           f'category=entertainment&'
+           f'apiKey={api_key}&'
+           f'page={page}&'
+           f'pageSize={page_size}')
     response = requests.get(url)
     return response.json()['articles']
 
 
-def music():
-    url = ('https://newsapi.org/v2/everything?'
-           'q=music&apiKey=5ba428a78e674a598a177775ea8d89b3&'
-           'page=1&'
-           'pageSize=5')
+def search(page, page_size, query, api_key):
+    url = (f'https://newsapi.org/v2/everything?'
+           f'q={query}&apiKey={api_key}&'
+           f'page={page}&'
+           f'pageSize={page_size}')
     response = requests.get(url)
     return response.json()['articles']
 
 
 def main():
-       pass
+    pass
 
 
 if __name__ == '__main__':
