@@ -1,6 +1,11 @@
 # team9-project1
 
-Database
+
+## Hosting
+
+Visit https://magazine-ecx.herokuapp.com/ 
+
+## Database
 
 currentlty have two models
 
@@ -24,7 +29,7 @@ we have four apps
 
 
 
-1. Magazine
+### Magazine
 
 
 This app has the basic templates and views
@@ -36,7 +41,7 @@ about page,  url = '/about'
 contact page,  url = '/contact'
 
 
-2. Blog
+### Blog
 
 
 This is the app that users can use to write, edit, delete and view their posts.
@@ -54,7 +59,7 @@ blog edit page, url = '/blog/slug/edit'
 blog delete page, url = '/blog/slug/delete'
 
 
-3. users
+### users
 
 has the whole user registration and login forms and authentication with the user profile and edit user profile
 
@@ -68,7 +73,7 @@ profile page, url = 'users/profile'....need to be logged in
 edit profile page, url = 'users/edit_profile'....need to be logged in
 
 
-4. search
+### search
 
 This is the app that adds search feature to the blog app.
 
