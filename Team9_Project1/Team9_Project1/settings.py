@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'rvoypy$$lzw!gu+z1wgrm*!-^^*8nn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['magazine-ecx.herokuapp.com','127.0.0.1', 'localhost']
 
 
 # Application definition
