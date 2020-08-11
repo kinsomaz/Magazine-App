@@ -27,7 +27,6 @@ def register(request):
     return render(request, 'users/register.html',context)
 
 
-
 def profile(request, username):
     context = {
         'title': 'Profile',
@@ -37,7 +36,6 @@ def profile(request, username):
 
 
 @login_required
-@user_passes_test
 def update_profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
@@ -46,7 +44,7 @@ def update_profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Your account has been updated')
-            return redirect('profile')
+            return redirect('profile', username=request.user.username)
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)

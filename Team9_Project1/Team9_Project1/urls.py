@@ -21,6 +21,7 @@ from blog.views import (
     blog_post_create_view,
 )
 from search.views import search_view
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,7 +29,11 @@ urlpatterns = [
     path('blog-new/', blog_post_create_view),
     path('blog/', include('blog.urls')),
     path('users/', include('users.urls')),
-    path('search/', search_view)
+    path('search/', search_view),
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'), name='password_reset_done'),
+    path('password_reset/confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('password_reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'), name='password_reset_complete'),
 ]
 
 if settings.DEBUG:

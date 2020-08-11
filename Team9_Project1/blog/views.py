@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from django.http import Http404
+from django.http import HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
@@ -39,7 +39,7 @@ def blog_post_create_view(request):
         obj.save()
         form = BlogPostModelForm()
         return redirect(blog_post_list_view)
-    template_name = 'blog/form.html'
+    template_name = 'blog/create.html'
     context = {'form': form}
     return render(request, template_name, context)  
 
@@ -53,6 +53,8 @@ def blog_post_detail_view(request, slug):
 @login_required
 def blog_post_update_view(request, slug):
     obj = get_object_or_404(BlogPost, slug=slug)
+    if request.user != obj.user:
+        return HttpResponseForbidden()
     form = BlogPostModelForm(request.POST or None, instance=obj)
     if form.is_valid():
         form.save()
@@ -64,6 +66,8 @@ def blog_post_update_view(request, slug):
 @login_required
 def blog_post_delete_view(request, slug):
     obj = get_object_or_404(BlogPost, slug=slug)
+    if request.user != obj.user:
+        return HttpResponseForbidden()
     template_name = 'blog/delete.html'
     if request.method == "POST":
         obj.delete()

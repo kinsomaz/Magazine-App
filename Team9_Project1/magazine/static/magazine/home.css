@@ -1,38 +1,3 @@
-footer{
-    background-color: #6C757D;
-    padding: 1rem;
-    margin-top: 40px;
-}
-
-footer h2 {
-    color: #fff;
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.socials img {
-    padding: 10px;
-}
-
-footer p {
-    margin-top: 20px;
-    margin-bottom: 0 !important;
-    color: #fff;
-}
-
-.header-logo h1{
-    margin:0;
-}
-
-.news-header{
-    text-align:center;
-    padding:20px 0;
-}
-
-.slider{
-    height:400px;
-}
 
 .article-link{
     dispaly:inline;
@@ -40,43 +5,22 @@ footer p {
     color:white;
 }
 
-section{
-    padding:50px 0;
-}
-
 .section-tittle {
-  position: relative;
+    position: relative;
 }
 
-.music-text{
-}
-
-.music-link{
-    dispaly:inline;
-    color:black;
-}
-
-.float-right{
-    display:inline;
-    float:right;
-}
-
-/* line 956, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
 .section-tittle::before {
   position: absolute;
   content: "";
   height: 1px;
-  width: 77%;
   background: #C7D2D8;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
 }
-.music{
-    padding:20px 0;
-}
-.music-image{
-    width:100%;
+
+.line-1::before{
+    min-width: 67%;
 }
 
 @media (max-width: 1199.98px) {

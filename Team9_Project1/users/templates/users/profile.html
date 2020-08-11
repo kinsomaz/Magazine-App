@@ -1,14 +1,14 @@
 {% extends "magazine/base.html" %}
 {% load crispy_forms_tags %}
+{% load custom_filter_tags %}
 {% block content %}
-<main class="container">
         <div class="row">
                 <div class="col-md-8 col-sm-12">
                         <div class="content-section mt-3">
                               <div class="media">
                                 <img class="rounded-circle account-img" src="{{ user_data.profile.image.url }}">
                                 <div class="media-body">
-                                  <h2 class="account-heading">{{ user_data.username }}</h2>
+                                  <h3 class="account-heading">{{ user_data.username }}</h3>
                                   <p class="text-secondary">{{ user_data.email }}</p>
                                         {% if user_data.profile.bio %}
                                    <p>{{ user_data.profile.bio }}</p>
@@ -18,13 +18,62 @@
                                         {% endif %}
                                 </div>
                                 </div>
-                                {% if user == user_data %}
-                                <a href="{% url 'update-profile' %}" class="btn btn-outline-primary">Edit Profile</a>
+                            {% if user == user_data %}
+                                <div class="edit-profile">
+                                    <a href="{% url 'update-profile' %}" class="btn btn-outline-primary">Edit Profile</a>
+                                </div>
                                 {% endif %}
+
 
                         </div>
                 </div>
                 <div class="col"></div>
         </div>
-</main>
+
+         <div class="content">
+             {% if user == user_data %}
+             {% if user_data.blogpost_set.all %}
+             <h3>Posts Made by you</h3>
+             {% else %}
+             <h3>You haven't made any posts</h3>
+             <p><a href="{% url 'create-post' %}">cick here</a> to add posts</p>
+             {% endif %}
+             {% else %}
+             {% if user_data.blogpost_set.all %}
+             <h3>Posts made by {{ user_data.username }}</h3>
+             {% else %}
+             <h3>{{user_data.username}} haven't made any posts</h3>
+             {% endif %}
+             {% endif %}
+
+        {% for object in user_data.blogpost_set.all %}
+        <div class="row article-row">
+            <div class="col-md-6 col-sm-12">
+                <div class="article-image">
+                    {% if object.image %}
+                    <img class="article-image" src="{{ object.image.url }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 meia-body">
+                 <div class="media">
+         <img class="rounded-circle detail-img" src="{{ object.user.profile.image.url }}">
+         <div class="media-body">
+             <a href="{% url 'profile' object.user.username %}" class="text-muted username">@{{ object.user.username }}</a>
+         </div>
+     </div>
+                <div class="article-text">
+                    <a href="{% url 'blog-post' object.slug %}" class="article-header-link"><h3>{{ object.title }}</h3></a>
+                    {% if object.content|length > 300 %}
+                    <p>{{ object.content|shrink }}...</p>
+                    {% else %}
+                    <p>{{ object.content }}</p>
+                    {% endif %}
+                    <a href="{% url 'blog-post' object.slug %}" class="btn btn-outline-info show-all view">view post</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
 {% endblock content %}
