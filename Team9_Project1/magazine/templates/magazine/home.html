@@ -2,178 +2,168 @@
 {% load static %}
 {% load custom_filter_tags %}
 {% block content %}
-        <main class="main">
-            <div class="container">
-                <section class="news">
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="section-tittle mb-35">
-                            <h2>Entertainment News</h2>
-                        </div>
-                    </div>
+    <section class="news">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-tittle mb-35 line-1">
+                    <h2>Entertainment News</h2>
                 </div>
-                    <div class="content">
-                        {% for article in articles %}
-                        <div class="row music">
-                            <div class="col-md-6 col-sm-12">
-                                <div class="music-image">
-                                    <img class="music-image" src="{{ article.urlToImage }}">
-                                </div>
-                            </div>
-                             <div class="col-md-6 col-sm-12">
-                                <div class="music-text">
-                                    <a href="{{ article.url }}" target="_blank" class="music-link"><h3>{{article.title}}</h3></a>
-                                    <p>{{ article.description }} <a href="{{ article.url }}" target="_blank"> Cick here to see full article</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                        <a href="{% url 'news' %}" class="btn btn-outline-info float-right">Show all</a>
-
-                </section>
-
-                <section class="music">
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="section-tittle mb-35">
-                            <h2>Music</h2>
-                        </div>
-                    </div>
-                </div>
-                    <div class="content">
-                        {% for article in music %}
-                        <div class="row music">
-                            <div class="col-md-6 col-sm-12">
-                                <div class="music-image">
-                                    <img class="music-image" src="{{ article.urlToImage }}">
-                                </div>
-                            </div>
-                             <div class="col-md-6 col-sm-12">
-                                <div class="music-text">
-                                    <a href="{{ article.url }}" target="_blank" class="music-link"><h3>{{article.title}}</h3></a>
-                                    <p>{{ article.description }} <a href="{{ article.url }}" target="_blank"> Cick here to see full article</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                        <a href="{% url 'music' %}" class="btn btn-outline-info float-right">Show all</a>
-                </section>
-
-                <section class="fashion" id="fashion">
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="section-tittle mb-35">
-                            <h2>Fashion</h2>
-                        </div>
-                    </div>
-                </div>
-                    <div class="content">
-                        {% for article in posts %}
-                        {% if forloop.counter < 6 %}
-                        {% if article.category == 'fashion' %}
-                        <div class="row music">
-                            <div class="col-md-6 col-sm-12">
-                                <div class="music-image">
-                                    {% if article.image %}
-                                    <img class="music-image" src="{{ article.image.url }}">
-                                    {% endif %}
-                                </div>
-                            </div>
-                             <div class="col-md-6 col-sm-12">
-                                <div class="music-text">
-                                    <a href="{% url 'detail-post' article.id %}" target="_blank" class="music-link"><h3>{{article.title}}</h3></a>
-                                    {% if article.article|length > 50 %}
-                                    <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}" target="_blank"> Cick here to see full article</a></p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                        <a href="{% url 'category' 'fashion' %}" class="btn btn-outline-info float-right">Show all</a>
-
-                </section>
-
-                <section class="art" id="art">
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="section-tittle mb-35">
-                            <h2>Art</h2>
-                        </div>
-                    </div>
-                </div>
-                    <div class="content">
-                        {% for article in posts %}
-                        {% if forloop.counter < 6 %}
-                        {% if article.category == 'art' %}
-                        <div class="row music">
-                            <div class="col-md-6 col-sm-12">
-                                <div class="music-image">
-                                    {% if article.image %}
-                                    <img class="music-image" src="{{ article.image.url }}">
-                                    {% endif %}
-                                </div>
-                            </div>
-                             <div class="col-md-6 col-sm-12">
-                                <div class="music-text">
-                                    <a href="{% url 'detail-post' article.id %}" target="_blank" class="music-link"><h3>{{article.title}}</h3></a>
-                                    {% if article.article|length > 50 %}
-                                    <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}" target="_blank"> Cick here to see full article</a></p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                        <a href="{% url 'category' 'art' %}" class="btn btn-outline-info float-right">Show all</a>
-
-                </section>
-
-                <section class="beauty" id="beauty">
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="section-tittle mb-35">
-                            <h2>Beauty</h2>
-                        </div>
-                    </div>
-                </div>
-                    <div class="content">
-                        {% for article in posts %}
-                        {% if forloop.counter < 6 %}
-                        {% if article.category == 'beauty' %}
-                        <div class="row music">
-                            <div class="col-md-6 col-sm-12">
-                                <div class="music-image">
-                                    {% if article.image %}
-                                    <img class="music-image" src="{{ article.image.url }}">
-                                    {% endif %}
-                                </div>
-                            </div>
-                             <div class="col-md-6 col-sm-12">
-                                <div class="music-text">
-                                    <a href="{% url 'detail-post' article.id %}" target="_blank" class="music-link"><h3>{{article.title}}</h3></a>
-                                    {% if article.article|length > 50 %}
-                                    <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}" target="_blank"> Cick here to see full article</a></p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                        <a href="{% url 'category' 'beauty' %}" class="btn btn-outline-info float-right">Show all</a>
-
-                </section>
-
-
-
             </div>
-        </main>
+        </div>
+        <div class="content">
+            {% for article in articles %}
+            <div class="row article-row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-image">
+                        <img class="article-image" src="{{ article.urlToImage }}">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-text">
+                        <a href="{{ article.url }}" target="_blank" class="article-header-link"><h3>{{article.title}}</h3></a>
+                        <p>{{ article.description }} <a href="{{ article.url }}" target="_blank"> Cick here to see full article</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{% url 'news' %}" class="btn btn-outline-info show-all">Show all</a>
+    </section>
+
+    <section class="music">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-tittle mb-35">
+                    <h2>Music</h2>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            {% for article in music %}
+            <div class="row article-row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-image">
+                        <img class="article-image" src="{{ article.urlToImage }}">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-text">
+                        <a href="{{ article.url }}" target="_blank" class="article-header-link"><h3>{{article.title}}</h3></a>
+                        <p>{{ article.description }} <a href="{{ article.url }}" target="_blank"> Cick here to see full article</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{% url 'music' %}" class="btn btn-outline-info show-all">Show all</a>
+    </section>
+    <section class="fashion" id="fashion">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-tittle mb-35">
+                    <h2>Fashion</h2>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            {% for article in posts %}
+            {% if article.category == 'fashion' %}
+            {% if forloop.counter < 6 %}
+            <div class="row article-row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-image">
+                        {% if article.image %}
+                        <img class="article-image" src="{{ article.image.url }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-text">
+                        <a href="{% url 'detail-post' article.id %}"class="article-header-link"><h3>{{article.title}}</h3></a>
+                        {% if article.article|length > 300 %}
+                        <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        {% else %}
+                        <p>{{ article.article}} <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        <a href="{% url 'category' 'fashion' %}" class="btn btn-outline-info show-all">Show all</a>
+    </section>
+    <section class="art" id="art">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-tittle mb-35">
+                    <h2>Art</h2>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            {% for article in posts %}
+            {% if article.category == 'art' %}
+            {% if forloop.counter < 11 %}
+            <div class="row article-row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-image">
+                        {% if article.image %}
+                        <img class="article-image" src="{{ article.image.url }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-text">
+                        <a href="{% url 'detail-post' article.id %}" class="article-header-link"><h3>{{article.title}}</h3></a>
+                        {% if article.article|length > 50 %}
+                        <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        <a href="{% url 'category' 'art' %}" class="btn btn-outline-info show-all">Show all</a>
+    </section>
+    <section class="beauty" id="beauty">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-tittle mb-35">
+                    <h2>Beauty</h2>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            {% for article in posts %}
+            {% if article.category == 'beauty' %}
+            {% if forloop.counter < 16 %}
+            <div class="row article-row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-image">
+                        {% if article.image %}
+                        <img class="article-image" src="{{ article.image.url }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="article-text">
+                        <a href="{% url 'detail-post' article.id %}" class="article-header-link"><h3>{{article.title}}</h3></a>
+                        {% if article.article|length > 300 %}
+                        <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        {% else %}
+                        <p>{{ article.article}} <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        <a href="{% url 'category' 'beauty' %}" class="btn btn-outline-info float-right">Show all</a>
+    </section>
 {% endblock content %}

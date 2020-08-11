@@ -1,7 +1,6 @@
 {% extends "magazine/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <main class="container">
         <div class="row">
             <div class="col"></div>
             <div class="col-md-8 col-sm-12">
@@ -13,6 +12,9 @@
                     </fieldset>
                     <div class="form-group">
                         <button class="btn btn-outline-primary" type="submit">Login</button>
+                        <small class="text-muted ml-2">
+                            <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                        </small>
                     </div>
                 </form>
                 <div class="border-top pt-3">
@@ -23,5 +25,4 @@
             </div>
             <div class="col"></div>
         </div>
-        </main>
 {% endblock content %}

@@ -2,36 +2,34 @@
 {% load static %}
 {% load custom_filter_tags %}
 {% block content %}
-<main class="container">
-<section class="search">
-                    <h1>You searched for {{ query }}</h1>
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="section-tittle mb-35">
-                            <h2>{{ query|capitalize }}</h2>
-                        </div>
-                    </div>
+<section>
+    <p class="text-muted">You searched for {{ query }}</p>
+    <div class="row">
+        <div class="col-12">
+            <div class="section-tittle mb-35">
+                <h3>Articles about {{ query|capitalize }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        {% if not articles %}
+        <h2>No result found</h2>
+        {% endif %}
+        {% for article in articles %}
+        <div class="row article-row">
+            <div class="col-md-6 col-sm-12">
+                <div class="article-image">
+                    <img class="article-image" src="{{ article.urlToImage }}">
                 </div>
-                    <div class="content">
-                        {% if not articles %}
-                            <h2>No result found</h2>
-                        {% endif %}
-                        {% for article in articles %}
-                        <div class="row music">
-                            <div class="col-md-6 col-sm-12">
-                                <div class="music-image">
-                                    <img class="music-image" src="{{ article.urlToImage }}">
-                                </div>
-                            </div>
-                             <div class="col-md-6 col-sm-12">
-                                <div class="music-text">
-                                    <a href="{{ article.url }}" target="_blank" class="music-link"><h3>{{article.title}}</h3></a>
-                                    <p>{{ article.description }} <a href="{{ article.url }}" target="_blank"> Cick here to see full article</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </section>
-    </main>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="article-text">
+                    <a href="{{ article.url }}" target="_blank" class="article-header-link"><h3>{{article.title}}</h3></a>
+                    <p>{{ article.description }} <a href="{{ article.url }}" target="_blank"> Cick here to see full article</a></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 {% endblock content %}

@@ -1,24 +1,37 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    <main class="container">
-            <div class="content">
-                <h2>{{ object.title }}</h2>
-                <p>By <a href="{% url 'profile' object.user.username %}" class="text-muted">{{ object.user.username }}</a></p>
-                <p>  <span class="text-muted">  {{ object.publish_date }}</span> </p>
-                <p>Slug: {{ object.slug }}</p>
-                {% if object.image %}
-                <img src="{{ object.image.url }}">
-                {% endif %}
-                <p>{{ object.content }}</p>
-                <div>
-                     {% if user == object.user %}
-                        <a href="{% url 'edit-post' object.slug %}" class="btn btn-outline-info">Edit</a>
-                        <a href="{% url 'delete-post' object.slug %}" class="btn btn-danger">Delete</a>
-                    {% endif %}
-                </div>
+<div class="detail">
+     <div class="media">
+         <img class="rounded-circle detail-img" src="{{ object.user.profile.image.url }}">
+         <div class="media-body">
+             <a href="{% url 'profile' object.user.username %}" class="text-muted username">@{{ object.user.username }}</a>
+         </div>
+     </div>
+    <div class="content">
+        {% if object.image %}
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <img src="{{ object.image.url }}" class="article-image">
             </div>
+        <div class="col"></div>
+        </div>
+        {% endif %}
+        <div class="blog-content">
+            <h4>{{ object.title }}</h4>
+           <div class="blog-paragraph">
+            <p>{{ object.content }}</p>
+            </div>
+        </div>
 
-        </main>
+        <p class="slug">Slug: {{ object.slug }}</p>
+        <span class="text-muted">{{ object.publish_date }}</span>
 
-
+         {% if user == object.user %}
+        <div class="edit-delete">
+                <a href="{% url 'edit-post' object.slug %}" class="btn btn-outline-info">Edit</a>
+                <a href="{% url 'delete-post' object.slug %}" class="btn btn-danger">Delete</a>
+        </div>
+        {% endif %}
+</div>
+    </div>
 {% endblock %}
