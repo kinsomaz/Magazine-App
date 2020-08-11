@@ -37,7 +37,6 @@ def profile(request, username):
 
 
 @login_required
-@user_passes_test
 def update_profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)

@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['magazine-ecx.herokuapp.com','127.0.0.1', 'localhost']
 
 
 # Application definition
-
+ 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
