@@ -1,19 +1,22 @@
 # team9-project1
 
-Database
 
-currentlty have two models
+## Hosting
 
-1. Default django user model
+Visit https://magazine-ecx.herokuapp.com/ 
 
-2. profile model(one to one relationship with user model..i.e one user is entitled to one profile), currently in the user app models
+## NOTE
 
-admin details
+It uses some environment parameters. Checked the .env.example file for details. Contact the backend devs for more info.
 
+## Functionality 
 
-username = 'admin'
+The magazine app brings you the latest entertainment news and music news,
+you can search for any intrest and it will bring you the latest.
 
-password = 'admin1234'
+It also comes with a blog app where users can register, login, and create blog post for users to see and
+can see posts created by other users.
+
 
 we have four apps
 
@@ -22,7 +25,9 @@ we have four apps
 3. users
 4. search
 
-1. Magazine
+
+
+### Magazine
 
 
 This app has the basic templates and views
@@ -34,17 +39,27 @@ about page,  url = '/about'
 contact page,  url = '/contact'
 
 
-2. Blog
+### Blog
 
 
-just the blog page
+This is the app that users can use to write, edit, delete and view their posts.
+
+NOTE: Slug is what the writer entered in the slug field during the creation of each post. 
 
 blog home page, url = '/blog'
 
+blog create page, url = '/create'
 
-3. users
+blog detail page, url = '/blog/detail/slug'
 
-has the whole user registration and login forms and authentication with the user profile and edit user profile
+blog edit page, url = '/blog/edit/slug'
+
+blog delete page, url = '/blog/delete/slug'
+
+
+### users
+
+Has the whole user registration and login forms and authentication with the user profile and edit user profile
 
 
 registration page, url = 'users/register'....redirect to magazine home page if already logged in
@@ -56,12 +71,11 @@ profile page, url = 'users/profile'....need to be logged in
 edit profile page, url = 'users/edit_profile'....need to be logged in
 
 
-4. search
+### search
 
-untouched
+This is the app that adds search feature to the blog app.
+
+search page, url = '/search'
 
 packages instaleed: django, Pillow, django-crispy-forms
 
-NB: the templates and styling for the pages are still going to be edited...these are just dummy templates
-
-Any questions can be asked on the group chat
