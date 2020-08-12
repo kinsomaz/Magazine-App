@@ -4,6 +4,11 @@
 ## Hosting
 
 Visit https://magazine-ecx.herokuapp.com/ 
+
+## NOTE
+
+It uses some environment parameters. Checked the .env.example file for details. Contact the backend devs for more info.
+
 ## Functionality 
 
 The magazine app brings you the latest entertainment news and music news,
@@ -12,21 +17,6 @@ you can search for any intrest and it will bring you the latest.
 It also comes with a blog app where users can register, login, and create blog post for users to see and
 can see posts created by other users.
 
-
-## Database
-
-currentlty have two models
-
-1. Default django user model
-
-2. profile model(one to one relationship with user model..i.e one user is entitled to one profile), currently in the user app models
-
-admin details
-
-
-username = 'admin'
-
-password = 'admin1234'
 
 we have four apps
 
@@ -58,18 +48,18 @@ NOTE: Slug is what the writer entered in the slug field during the creation of e
 
 blog home page, url = '/blog'
 
-blog create page, url = '/blog-new'
+blog create page, url = '/create'
 
-blog detail page, url = '/blog/slug'
+blog detail page, url = '/blog/detail/slug'
 
-blog edit page, url = '/blog/slug/edit'
+blog edit page, url = '/blog/edit/slug'
 
-blog delete page, url = '/blog/slug/delete'
+blog delete page, url = '/blog/delete/slug'
 
 
 ### users
 
-has the whole user registration and login forms and authentication with the user profile and edit user profile
+Has the whole user registration and login forms and authentication with the user profile and edit user profile
 
 
 registration page, url = 'users/register'....redirect to magazine home page if already logged in
@@ -89,6 +79,3 @@ search page, url = '/search'
 
 packages instaleed: django, Pillow, django-crispy-forms
 
-NB: the templates and styling for the pages are still going to be edited...these are just dummy templates
-
-Any questions can be asked on the group chat
