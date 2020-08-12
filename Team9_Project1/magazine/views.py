@@ -3,7 +3,8 @@ from .forms import ContactUsForm
 from .apis import top_headlines, search
 from django.views.generic import ListView, DetailView
 from .models import MagazinePosts
-api_key = '5ba428a78e674a598a177775ea8d89b3'
+from decouple import config
+api_key = config('api_key')
 
 
 class MagazineListView(ListView):
