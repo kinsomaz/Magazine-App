@@ -1,4 +1,18 @@
 {% extends "magazine/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-        <h1>Contact Page</h1>
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p>Fusce mauris dolor, pretium nec augue a, lacinia suscipit libero. Pellentesque erat sapien, fermentum at lectus vel, imperdiet interdum ligula. Ut in commodo erat. Vestibulum dignissim euismod risus ac fermentum. Curabitur eu feugiat mauris, lacinia tincidunt nisl. Integer turpis sem, tristique a ipsum ac, ullamcorper posuere orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo eget dui non consequat. Mauris magna enim, eleifend ac justo at, tristique consectetur magna. Aliquam eget lacus vitae leo elementum volutpat. Etiam vitae facilisis ligula. Maecenas congue sagittis hendrerit. Integer et facilisis neque. Proin tristique leo id dolor egestas, non pellentesque lorem finibus. Pellentesque ut odio neque. Donec malesuada lectus nec lacus hendrerit aliquam.</p>
+        </div>
+
+        <form class="contact-form " method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary read" type="submit">Send</button>
+                    </div>
+        </form>
 {% endblock content %}

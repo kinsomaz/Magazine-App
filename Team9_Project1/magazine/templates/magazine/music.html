@@ -1,0 +1,31 @@
+{% extends "magazine/base.html" %}
+{% load static %}
+{% load custom_filter_tags %}
+{% block content %}
+<section class="music">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-tittle mb-35">
+                <h2>Music</h2>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        {% for article in articles %}
+        <div class="row article-row">
+            <div class="col-md-6 col-sm-12">
+                <div class="article-image">
+                    <img class="article-image" src="{{ article.urlToImage }}">
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="article-text">
+                    <a href="{{ article.url }}" target="_blank" class="article-header-link"><h3>{{article.title}}</h3></a>
+                    <p>{{ article.description }} <a href="{{ article.url }}" target="_blank"> Click here to see full article</a></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends "magazine/base.html" %}
+{% load static %}
+{% load custom_filter_tags %}
+{% block content %}
+        <section>
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-tittle mb-35">
+                        <h2>{{ category|capitalize }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                {% for article in posts %}
+                <div class="row article-row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="article-imagae">
+                            {% if article.image %}
+                            <img class="article-image" src="{{ article.image.url }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="article-text">
+                            <a href="{% url 'detail-post' article.id %}" class="article-header-link"><h3>{{article.title}}</h3></a>
+                            {% if article.article|length > 50 %}
+                            <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+{% endblock content %}

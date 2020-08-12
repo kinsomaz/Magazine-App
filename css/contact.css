@@ -34,7 +34,7 @@ label {
     margin-top: 10px;
 }
 
-footer{
+footer {
     background-color: #6C757D;
     padding: 1rem;
     margin-top: 40px;
@@ -60,30 +60,28 @@ footer p {
 @media (max-width: 425px) {
     .contact {
         margin-top: 30px;
-        margin-right: 20px;
-        margin-left: 20px;
     }
-    
+
     .contact h3 {
         font-size: 30px;
         margin-bottom: 15px;
     }
-    
+
     .contact p {
         font-size: 16px;
         font-weight: 300;
     }
-    
+
     .read {
         font-size: 16px;
         margin-top: 30px;
         width: 100%;
     }
-    
+
     form {
-        margin: 40px 20px;
+        margin: 40px 0;
     }
-    
+
     label {
         font-weight: 500;
         font-size: 18px;

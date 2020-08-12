@@ -1,0 +1,32 @@
+
+.article-link{
+    dispaly:inline;
+    text-decorator:none;
+    color:white;
+}
+
+.section-tittle {
+    position: relative;
+}
+
+.section-tittle::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  background: #C7D2D8;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.line-1::before{
+    min-width: 67%;
+}
+
+@media (max-width: 1199.98px) {
+
+}
+
+@media (max-width: 425px) {
+
+}
