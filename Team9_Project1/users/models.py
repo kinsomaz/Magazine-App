@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from PIL import Image
 from django.core.files.storage import default_storage as storage
 
+User._meta.get_field('email')._unique = True
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
