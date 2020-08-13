@@ -16,7 +16,6 @@ from .models import BlogPost
 # Create Retrieve Update Delete
 
 
-
 def blog_post_list_view(request):
     # list out objects 
     # could be search
@@ -55,9 +54,10 @@ def blog_post_update_view(request, slug):
     obj = get_object_or_404(BlogPost, slug=slug)
     if request.user != obj.user:
         return HttpResponseForbidden()
-    form = BlogPostModelForm(request.POST or None, instance=obj)
+    form = BlogPostModelForm(request.POST or None, request.FILES or None, instance=obj)
     if form.is_valid():
         form.save()
+        return redirect('blog-post', slug=slug)
     template_name = 'blog/form.html'
     context = {"title": f"Update {obj.title}", "form": form}
     return render(request, template_name, context)  

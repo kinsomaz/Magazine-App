@@ -12,7 +12,7 @@
             </div>
             <div class="content">
                 {% for article in posts %}
-                <div class="row article-row">
+                <div class="row article-row border-bottom">
                     <div class="col-md-6 col-sm-12">
                         <div class="article-imagae">
                             {% if article.image %}
@@ -23,9 +23,11 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="article-text">
                             <a href="{% url 'detail-post' article.id %}" class="article-header-link"><h3>{{article.title}}</h3></a>
-                            {% if article.article|length > 50 %}
-                            <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
-                            {% endif %}
+                            {% if article.article|length > 300 %}
+                        <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        {% else %}
+                        <p>{{ article.article|linebreaks }} <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        {% endif %}
                         </div>
                     </div>
                 </div>

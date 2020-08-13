@@ -5,14 +5,14 @@
     <section class="news">
         <div class="row">
             <div class="col-12">
-                <div class="section-tittle mb-35 line-1">
+                <div class="section-tittle mb-35">
                     <h2>Entertainment News</h2>
                 </div>
             </div>
         </div>
         <div class="content">
             {% for article in articles %}
-            <div class="row article-row">
+            <div class="row article-row border-bottom">
                 <div class="col-md-6 col-sm-12">
                     <div class="article-image">
                         <img class="article-image" src="{{ article.urlToImage }}">
@@ -40,7 +40,7 @@
         </div>
         <div class="content">
             {% for article in music %}
-            <div class="row article-row">
+            <div class="row article-row border-bottom">
                 <div class="col-md-6 col-sm-12">
                     <div class="article-image">
                         <img class="article-image" src="{{ article.urlToImage }}">
@@ -69,7 +69,7 @@
             {% for article in posts %}
             {% if article.category == 'fashion' %}
             {% if forloop.counter < 6 %}
-            <div class="row article-row">
+            <div class="row article-row border-bottom">
                 <div class="col-md-6 col-sm-12">
                     <div class="article-image">
                         {% if article.image %}
@@ -83,7 +83,7 @@
                         {% if article.article|length > 300 %}
                         <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
                         {% else %}
-                        <p>{{ article.article}} <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        <p>{{ article.article|linebreaks }} <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
                         {% endif %}
                     </div>
                 </div>
@@ -106,7 +106,7 @@
             {% for article in posts %}
             {% if article.category == 'art' %}
             {% if forloop.counter < 11 %}
-            <div class="row article-row">
+            <div class="row article-row border-bottom">
                 <div class="col-md-6 col-sm-12">
                     <div class="article-image">
                         {% if article.image %}
@@ -117,8 +117,10 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="article-text">
                         <a href="{% url 'detail-post' article.id %}" class="article-header-link"><h3>{{article.title}}</h3></a>
-                        {% if article.article|length > 50 %}
+                        {% if article.article|length > 300 %}
                         <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        {% else %}
+                        <p>{{ article.article|linebreaks }} <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
                         {% endif %}
                     </div>
                 </div>
@@ -141,7 +143,7 @@
             {% for article in posts %}
             {% if article.category == 'beauty' %}
             {% if forloop.counter < 16 %}
-            <div class="row article-row">
+            <div class="row article-row border-bottom">
                 <div class="col-md-6 col-sm-12">
                     <div class="article-image">
                         {% if article.image %}
@@ -155,7 +157,7 @@
                         {% if article.article|length > 300 %}
                         <p>{{ article.article|shrink }}... <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
                         {% else %}
-                        <p>{{ article.article}} <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
+                        <p>{{ article.article|linebreaks }} <a href="{% url 'detail-post' article.id %}"> Cick here to see full article</a></p>
                         {% endif %}
                     </div>
                 </div>

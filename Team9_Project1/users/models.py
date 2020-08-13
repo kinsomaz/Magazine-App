@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from PIL import Image
 from django.core.files.storage import default_storage as storage
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(null=True, blank=True)
@@ -25,4 +26,4 @@ class Profile(models.Model):
             fh = storage.open(self.image.name, "w")
             picture_format = 'png'
             img.save(fh, picture_format)
-            fh.close()  
+            fh.close()

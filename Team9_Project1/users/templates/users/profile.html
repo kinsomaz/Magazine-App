@@ -47,7 +47,7 @@
              {% endif %}
 
         {% for object in user_data.blogpost_set.all %}
-        <div class="row article-row">
+        <div class="row article-row border-bottom">
             <div class="col-md-6 col-sm-12">
                 <div class="article-image">
                     {% if object.image %}
@@ -67,7 +67,7 @@
                     {% if object.content|length > 300 %}
                     <p>{{ object.content|shrink }}...</p>
                     {% else %}
-                    <p>{{ object.content }}</p>
+                    <p>{{ object.content|linebreaks }}</p>
                     {% endif %}
                     <a href="{% url 'blog-post' object.slug %}" class="btn btn-outline-info show-all view">view post</a>
                 </div>
